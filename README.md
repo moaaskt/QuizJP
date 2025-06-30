@@ -1,80 +1,72 @@
-# 🌍 Quiz do JP – Futuristic Educational Game
+# 🌍 Quiz do JP – Jogo Educativo Futurista
 
-**Quiz do JP** is an interactive and visually immersive **multicultural quiz game** focused on the **internationalization of higher education**.  
-Built with **Vanta.js**, **Bolt** and modern web technologies, it combines engaging content with a stunning futuristic interface.  
+**Quiz do JP** é um jogo de perguntas e respostas interativo, imersivo e multicultural, com foco na **internacionalização da educação superior**.  
+Desenvolvido com **Vanta.js**, **Bolt** e tecnologias web modernas, o jogo combina conteúdo educativo com uma interface visualmente impressionante e futurista.
 
 <br/>
 
-![Quiz do JP Screenshot](./screenshot.png)
+![Quiz do JP Screenshot](https://github.com/moaaskt/QuizJP/blob/main/caps.png)
 
 ---
 
-## 🚀 Features
+## 🚀 Funcionalidades
 
-- 🎮 **Interactive quiz** on:
-  - Culture (festivals, traditions, customs)
-  - Language (expressions, vocabulary from around the world)
-  - Educational systems (university structures, comparisons)
-- 🌐 **Multilingual support** – English 🇺🇸 and Portuguese 🇧🇷
-- ⚡ **Real-time score tracking**
-- 🧠 **Bonus challenges** with cultural curiosities
-- 🏆 **Global leaderboard** with player name and score
-- 💫 **3D animated backgrounds** using [Vanta.js](https://www.vantajs.com/)
-- 🎨 **Responsive and futuristic design** using glowing neon elements
-- 📱 Mobile-friendly and accessible
-
----
-
-## 🛠️ Technologies Used
-
-| Tech         | Purpose                                  |
-|--------------|------------------------------------------|
-| [Bolt](https://boltiot.com/)       | Visual flow and logic builder         |
-| HTML/CSS/JS  | Base structure and interactions          |
-| Vanta.js     | Interactive 3D animated background       |
-| Three.js     | Dependency for Vanta                     |
-| LocalStorage | Local leaderboard data                   |
-| JSON         | Multilingual support and quiz database   |
+- 🎮 **Quiz interativo** com perguntas sobre:
+  - Cultura (festivais, tradições, costumes)
+  - Idiomas (expressões, vocabulários de diferentes países)
+  - Sistemas educacionais (universidades, diferenças globais)
+- 🌐 **Suporte multilíngue** – Português 🇧🇷 e Inglês 🇺🇸
+- ⚡ **Pontuação em tempo real**
+- 🧠 **Desafios bônus** com curiosidades culturais
+- 🏆 **Ranking global** com nome do jogador e pontuação
+- 💫 **Fundos animados em 3D** com [Vanta.js](https://www.vantajs.com/)
+- 🎨 **Design futurista e responsivo**
+- 📱 Compatível com dispositivos móveis
 
 ---
 
-## 📷 Preview
+## 🛠️ Tecnologias Utilizadas
 
-![Home Page](./screenshot-home.png)
-![Quiz Screen](./screenshot-quiz.png)
-![Leaderboard](./screenshot-ranking.png)
-
----
-
-## 📚 How to Play
-
-1. Enter your **name** on the home screen.
-2. Click **"Play"** to begin the quiz.
-3. Answer the multiple-choice questions.
-4. Earn points and see **explanations** after each answer.
-5. Finish the game to view your **score and ranking**.
-6. Change language anytime with the toggle button in the top-right.
+| Tecnologia     | Função                                     |
+|----------------|---------------------------------------------|
+| [Bolt](https://boltiot.com/)       | Criação visual dos fluxos e lógicas do jogo |
+| HTML/CSS/JS    | Estrutura base e interações do jogo        |
+| Vanta.js       | Efeitos de fundo animado em 3D             |
+| Three.js       | Biblioteca base para o Vanta.js            |
+| LocalStorage   | Armazenamento local do ranking             |
+| JSON           | Base de dados para perguntas e idiomas     |
 
 ---
 
-## 💡 Educational Value
 
-This game was designed to:
-- Promote awareness of **global cultures and education systems**
-- Improve **language and cultural literacy**
-- Provide an **engaging learning environment** for students in academic settings
+## 📚 Como Jogar
 
----
-
-## ✨ Author
-
-Made with ❤️ by [@moaaskt](https://github.com/moaaskt)  
-Futuristic design, educational content, and immersive interaction — all in one game.
+1. Digite seu **nome** na tela inicial.
+2. Clique em **"Jogar"** para iniciar o quiz.
+3. Responda as perguntas de múltipla escolha.
+4. Veja sua pontuação em tempo real e explicações educativas.
+5. Ao final, confira seu **ranking** global.
+6. Alterne o idioma a qualquer momento no topo da tela.
 
 ---
 
-## 📄 License
+## 🎓 Propósito Educacional
 
-This project is licensed under the **MIT License**.  
-Feel free to fork, modify, or use it in your own educational tools.
+O Quiz do JP foi criado para:
+- Estimular o interesse por culturas e sistemas educacionais internacionais
+- Melhorar o conhecimento linguístico e cultural
+- Oferecer uma experiência de aprendizagem divertida e visualmente envolvente
 
+---
+
+## ✨ Autor
+
+Feito com 💙 por [@moaaskt](https://github.com/moaaskt)  
+Design futurista, conteúdo educativo e interatividade — tudo em um só jogo.
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **Licença MIT**.  
+Sinta-se livre para usar, adaptar ou expandir para fins educacionais.
