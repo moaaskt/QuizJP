@@ -5,7 +5,7 @@ Desenvolvido com **Vanta.js**, **Bolt** e tecnologias web modernas, o jogo combi
 
 <br/>
 
-![Quiz do JP Screenshot](https://github.com/moaaskt/QuizJP/blob/main/caps.png)
+![Quiz do JP Screenshot](https://github.com/moaaskt/QuizJP/blob/main/src/Assets/caps.png)
 
 ---
 
