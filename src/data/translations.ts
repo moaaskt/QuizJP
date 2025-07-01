@@ -1,15 +1,19 @@
+
 export const translations = {
   pt: {
-    // Start Screen
-    gameTitle: 'Quiz do JP',
-    playerName: 'Seu Nome',
-    play: 'Jogar',
-    instructions: 'Instruções',
-    ranking: 'Ranking',
-    enterName: 'Digite seu nome para começar',
-    
-    // Instructions
-    instructionsTitle: 'Como Jogar',
+    // Tela Inicial (Start Screen)
+    gameTitle: 'Quiz do JP', 
+    playerName: 'Seu Nome', 
+    play: 'Jogar', 
+    instructions: 'Instruções', 
+    ranking: 'Ranking', 
+    enterName: 'Digite seu nome para começar', 
+
+
+
+
+    // Instruções (Instructions Screen)
+    instructionsTitle: 'Como Jogar', 
     instructionsText: [
       '🌍 Teste seus conhecimentos sobre culturas, idiomas e sistemas educacionais do mundo!',
       '🎯 Responda perguntas de múltipla escolha em 3 categorias diferentes',
@@ -18,22 +22,22 @@ export const translations = {
       '🏆 Seu recorde será salvo no ranking global',
       '🌟 Aprenda fatos interessantes com cada resposta!'
     ],
-    categories: 'Categorias:',
-    culture: 'Cultura',
-    language: 'Idiomas',
-    education: 'Educação',
-    backToMenu: 'Voltar ao Menu',
-    
-    // Game
-    question: 'Pergunta',
-    of: 'de',
-    score: 'Pontuação',
-    nextQuestion: 'Próxima Pergunta',
-    finishQuiz: 'Finalizar Quiz',
-    correct: 'Correto!',
-    incorrect: 'Incorreto!',
-    
-    // Bonus
+    categories: 'Categorias:', 
+    culture: 'Cultura', 
+    language: 'Idiomas', 
+    education: 'Educação', 
+    backToMenu: 'Voltar ao Menu', 
+
+    // Jogo (GameScreen)
+    question: 'Pergunta', 
+    of: 'de', 
+    score: 'Pontuação', 
+    nextQuestion: 'Próxima Pergunta', 
+    finishQuiz: 'Finalizar Quiz', 
+    correct: 'Correto!', 
+    incorrect: 'Incorreto!', 
+
+    // Desafio Bônus (Bonus Challenge - se houver implementação adicional)
     bonusChallenge: 'Desafio Bônus!',
     bonusQuestion: 'Pergunta Bônus',
     yourAnswer: 'Sua Resposta',
@@ -42,24 +46,24 @@ export const translations = {
     bonusIncorrect: 'Não foi dessa vez, mas continue tentando!',
     continueQuiz: 'Continuar Quiz',
     timeLeft: 'Tempo Restante',
-    
-    // Results
-    quizCompleted: 'Quiz Concluído!',
-    finalScore: 'Pontuação Final',
-    correctAnswers: 'Respostas Corretas',
-    playAgain: 'Jogar Novamente',
-    viewRanking: 'Ver Ranking',
-    
-    // Leaderboard
-    leaderboard: 'Ranking Global',
-    position: 'Pos',
-    player: 'Jogador',
-    points: 'Pontos',
-    noScores: 'Nenhuma pontuação ainda. Seja o primeiro!',
-    
-    // Common
-    loading: 'Carregando...',
-    close: 'Fechar'
+
+    // Resultados (ResultScreen)
+    quizCompleted: 'Quiz Concluído!', 
+    finalScore: 'Pontuação Final', 
+    correctAnswers: 'Respostas Corretas', 
+    playAgain: 'Jogar Novamente', 
+    viewRanking: 'Ver Ranking', 
+
+    // Ranking (LeaderboardScreen)
+    leaderboard: 'Ranking Global', 
+    position: 'Pos', 
+    player: 'Jogador', 
+    points: 'Pontos', 
+    noScores: 'Nenhuma pontuação ainda. Seja o primeiro!', 
+
+    // Comum (Usado em várias telas)
+    loading: 'Carregando...', 
+    close: 'Fechar' 
   },
   en: {
     // Start Screen
@@ -70,7 +74,7 @@ export const translations = {
     ranking: 'Ranking',
     enterName: 'Enter your name to start',
     
-    // Instructions
+    // Instruçoes
     instructionsTitle: 'How to Play',
     instructionsText: [
       '🌍 Test your knowledge about cultures, languages and educational systems worldwide!',
@@ -105,7 +109,7 @@ export const translations = {
     continueQuiz: 'Continue Quiz',
     timeLeft: 'Time Left',
     
-    // Results
+    // Resultados
     quizCompleted: 'Quiz Completed!',
     finalScore: 'Final Score',
     correctAnswers: 'Correct Answers',

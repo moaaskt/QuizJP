@@ -1,3 +1,5 @@
+
+// Interface que representa a pergunta do quiz
 export interface Question {
   id: number;
   category: 'culture' | 'language' | 'education';
@@ -18,6 +20,8 @@ export interface Question {
   points: number;
 }
 
+
+// Interface que representa uma pergunta bônus
 export interface BonusQuestion {
   id: number;
   question: {
@@ -31,12 +35,15 @@ export interface BonusQuestion {
   points: number;
 }
 
+// Interface que representa um jogador no ranking
 export interface Player {
   name: string;
   score: number;
   timestamp: number;
 }
 
+
+// Estado global do jogo durante uma sessão ativa
 export interface GameState {
   currentQuestion: number;
   score: number;
