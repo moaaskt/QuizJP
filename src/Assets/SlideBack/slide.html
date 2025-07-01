@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz do JP - Slide Deck</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the slide deck */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Dark background with subtle texture/pattern mimicking Vanta.js */
+            background-color: #121212; /* Very dark grey/black */
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%232a2a2a" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zm0 30v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0-30V0H4v4H0v2h4v4h2V6h4V4H6zm0 30v-4H4v4H0v2h4v4h2v-4h4v-2H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); /* Subtle geometric pattern */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px; /* More padding */
+            min-height: 100vh;
+            color: #e0e0e0; /* Light text color for body */
+            /* Force print backgrounds and colors */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .slide-container {
+            background-color: rgba(25, 25, 35, 0.85); /* Semi-transparent dark background */
+            /* backdrop-filter might not be supported in print, so we rely on background-color */
+            border-radius: 25px; /* More rounded corners */
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.15), 0 0 30px rgba(128, 0, 128, 0.1); /* Neon glow shadow */
+            border: 1px solid rgba(64, 224, 208, 0.3); /* Subtle neon border */
+            margin-bottom: 50px; /* More space between slides */
+            padding: 60px; /* Generous padding */
+            width: 100%;
+            max-width: 1000px; /* Wider slides */
+            box-sizing: border-box;
+            page-break-inside: avoid;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            /* Force print backgrounds and colors for slide containers too */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .slide-container:hover {
+            transform: translateY(-8px) scale(1.01); /* Lift and slight scale on hover */
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.25), 0 0 40px rgba(128, 0, 128, 0.2); /* Enhanced glow on hover */
+        }
+        h1 {
+            font-size: 3.8rem; /* Larger title for main headings */
+            font-weight: 900; /* Ultra bold */
+            color: #00ffff; /* Cyan neon color */
+            margin-bottom: 25px;
+            text-align: center;
+            letter-spacing: -0.06em;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Neon text shadow */
+        }
+        h2 {
+            font-size: 2.8rem; /* Subtitle size */
+            font-weight: 800;
+            color: #9933ff; /* Purple neon color */
+            margin-bottom: 30px;
+            border-bottom: 4px solid #00ffff; /* Cyan accent underline */
+            padding-bottom: 12px;
+            display: inline-block;
+            text-shadow: 0 0 10px rgba(153, 51, 255, 0.5); /* Purple text shadow */
+        }
+        h3 {
+            font-size: 2.2rem; /* Smaller subtitle size */
+            font-weight: 700;
+            color: #d0d0d0; /* Light grey */
+            margin-bottom: 35px;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+        ul {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+            margin-bottom: 30px;
+            color: #e0e0e0; /* Light text for lists */
+        }
+        li {
+            margin-bottom: 15px;
+            font-size: 1.25rem; /* Larger text */
+            line-height: 1.8;
+            position: relative;
+            padding-left: 35px;
+        }
+        li::before {
+            content: '✦'; /* Star/sparkle-like custom bullet */
+            color: #00ffff; /* Cyan accent color for bullets */
+            font-size: 1.8rem;
+            position: absolute;
+            left: 0;
+            top: -4px;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 15px; /* More rounded corners for table */
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.1); /* Subtle table glow */
+        }
+        th, td {
+            border: none;
+            padding: 18px 25px;
+            text-align: left;
+            color: #e0e0e0; /* Light text for table content */
+        }
+        th {
+            background: linear-gradient(90deg, #00bfff, #9933ff); /* Gradient header background */
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 0.08em;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+        td {
+            background-color: rgba(40, 40, 50, 0.9); /* Slightly lighter dark background for cells */
+            border-bottom: 1px solid rgba(64, 224, 208, 0.2); /* Subtle neon separator */
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .cover-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin: 50px auto;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), inset 0 0 15px rgba(0, 255, 255, 0.3); /* Stronger neon glow */
+            border: 2px solid #00ffff;
+        }
+        .cover-image img { /* Style for the actual image tag */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border-radius: 20px; /* Apply border-radius to the image itself */
+        }
+        .cover-image span {
+            display: none; /* Hide the placeholder text now that the image is set */
+        }
+        .footer-text {
+            font-size: 1.1rem;
+            color: #b0b0b0; /* Lighter grey for footer */
+            text-align: center;
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+        .footer-text a {
+            color: #00ffff; /* Cyan neon for links */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+        .footer-text a:hover {
+            color: #9933ff; /* Purple neon on hover */
+            text-decoration: underline;
+            text-shadow: 0 0 8px rgba(153, 51, 255, 0.7);
+        }
+        .heart-icon {
+            color: #ff007f; /* Pink neon heart */
+            font-size: 1.3em;
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.7);
+        }
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .slide-container {
+                padding: 40px;
+                margin-bottom: 40px;
+                border-radius: 20px;
+            }
+            h1 {
+                font-size: 2.8rem;
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            h3 {
+                font-size: 1.6rem;
+            }
+            li {
+                font-size: 1.1rem;
+                padding-left: 30px;
+            }
+            li::before {
+                font-size: 1.5rem;
+            }
+            th, td {
+                padding: 15px 20px;
+                font-size: 0.95rem;
+            }
+            .cover-image {
+                height: 300px;
+                font-size: 1.4rem;
+                margin: 40px auto;
+                border-radius: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            .slide-container {
+                padding: 30px;
+                margin-bottom: 30px;
+                border-radius: 15px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            li {
+                font-size: 1rem;
+                padding-left: 25px;
+            }
+            li::before {
+                font-size: 1.3rem;
+            }
+            th, td {
+                padding: 12px 15px;
+                font-size: 0.85rem;
+            }
+            .cover-image {
+                height: 250px;
+                font-size: 1.2rem;
+                margin: 30px auto;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Capa -->
+    <div class="slide-container">
+        <h1>Quiz do JP</h1>
+        <h3>Gamificação na Internacionalização da Educação Superior</h3>
+        <div class="cover-image">
+            <!-- Using <img> tag for better print compatibility -->
+            <img src="https://raw.githubusercontent.com/moaaskt/QuizJP/main/src/Assets/caps.png" alt="Captura de tela do jogo Quiz do JP">
+        </div>
+        <p class="footer-text">
+           
+            <strong>Repositório GitHub:</strong> <a href="https://github.com/moaaskt/QuizJP" target="_blank">https://github.com/moaaskt/QuizJP</a>
+        </p>
+    </div>
+
+    <!-- Slide 2: Problema -->
+    <div class="slide-container">
+        <h2>O Desafio Educacional</h2>
+        <ul>
+            <li>Identifica-se uma carência de engajamento em conteúdos relacionados à internacionalização.</li>
+            <li>Observa-se a escassez de recursos lúdicos para o ensino de culturas, idiomas e sistemas educacionais globais.</li>
+            <li>Há uma necessidade premente de desenvolver abordagens interativas e visualmente cativantes.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 3: Solução -->
+    <div class="slide-container">
+        <h2>Solução: Quiz do JP</h2>
+        <ul>
+            <li>Apresenta-se um jogo web interativo com questões abrangendo:
+                <ul>
+                    <li>Aspectos culturais</li>
+                    <li>Diversidade linguística</li>
+                    <li>Sistemas educacionais</li>
+                </ul>
+            </li>
+            <li>A interface é configurada para operar em múltiplos idiomas (Português e Inglês).</li>
+            <li>O design incorpora elementos futuristas com fundos animados em 3D, utilizando a biblioteca Vanta.js.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 4: Funcionalidades -->
+    <div class="slide-container">
+        <h2>Recursos Principais</h2>
+        <ul>
+            <li>Oferece um quiz interativo acompanhado de explicações educativas.</li>
+            <li>Implementa um sistema de pontuação em tempo real.</li>
+            <li>Inclui desafios bônus com curiosidades culturais adicionais.</li>
+            <li>Mantém um ranking global com armazenamento local de dados.</li>
+            <li>Integra fundos animados em 3D para uma experiência imersiva.</li>
+            <li>Garante compatibilidade e suporte para dispositivos móveis.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 5: Tecnologias Utilizadas -->
+    <div class="slide-container">
+        <h2>Stack Tecnológica</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tecnologia</th>
+                    <th>Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>React + TypeScript</td>
+                    <td>Estrutura principal e garantia de tipagem segura</td>
+                </tr>
+                <tr>
+                    <td>Tailwind CSS</td>
+                    <td>Estilização ágil e responsiva</td>
+                </tr>
+                <tr>
+                    <td>Vanta.js</td>
+                    <td>Geração de fundos animados em 3D</td>
+                </tr>
+                <tr>
+                    <td>LocalStorage</td>
+                    <td>Armazenamento persistente de dados no lado do cliente</td>
+                </tr>
+                <tr>
+                    <td>JSON</td>
+                    <td>Formato de dados para o banco de questões e traduções</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Slide 6: Diferenciais -->
+    <div class="slide-container">
+        <h2>Aspectos Distintivos do Quiz do JP</h2>
+        <ul>
+            <li>Caracteriza-se por um design futurista e uma experiência imersiva.</li>
+            <li>Possui uma interface multilíngue integrada.</li>
+            <li>Apresenta visualização 3D aprimorada com Vanta.js.</li>
+            <li>O código é modular, facilitando a expansão e manutenção.</li>
+            <li>Opera integralmente offline após o carregamento inicial.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 7: Impacto Educacional -->
+    <div class="slide-container">
+        <h2>Aprendizagem Lúdica e Interativa</h2>
+        <ul>
+            <li>Contribui para a promoção da aprendizagem sobre internacionalização.</li>
+            <li>Constitui uma ferramenta ideal para estudantes, docentes e instituições de ensino.</li>
+            <li>Sua aplicabilidade estende-se a workshops, eventos acadêmicos e à gamificação de cursos.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 8: Futuro do Projeto -->
+    <div class="slide-container">
+        <h2>Próximas Etapas</h2>
+        <ul>
+            <li>Desenvolvimento de um backend para implementação de ranking online.</li>
+            <li>Exploração de modos multiplayer ou competições entre turmas.</li>
+            <li>Integração com Sistemas de Gestão da Aprendizagem (LMS), como Google Classroom e Moodle.</li>
+            <li>Capacidade de exportação de relatórios para análise pedagógica.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 9: Conclusão -->
+    <div class="slide-container">
+        <h2>Desenvolvido com <span class="heart-icon">❤️</span> por Alunos do Matheus</h2>
+        <ul>
+            <li>O Quiz do JP representa uma convergência entre educação, tecnologia e design futurista.</li>
+            <li>O projeto está disponível no GitHub sob a licença MIT.</li>
+            <li>Convida-se à colaboração e aprimoramentos contínuos.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
