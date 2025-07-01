@@ -3,13 +3,14 @@ import { Clock, Star, CheckCircle, XCircle, Gift } from 'lucide-react';
 import { BonusQuestion } from '../types';
 import { translations } from '../data/translations';
 
+// Tipagem das propriedades do componente
 interface BonusScreenProps {
-  language: 'pt' | 'en';
-  bonusQuestion: BonusQuestion;
-  onAnswerSubmitted: (answer: string) => void;
-  onContinue: () => void;
-  showResult: boolean;
-  isCorrect: boolean | null;
+  language: 'pt' | 'en'; // Idioma selecionado
+  bonusQuestion: BonusQuestion; // Dados da pergunta bônus
+  onAnswerSubmitted: (answer: string) => void; // Callback ao enviar resposta
+  onContinue: () => void; // Callback para continuar o quiz
+  showResult: boolean; // Flag para mostrar resultado
+  isCorrect: boolean | null; // Se a resposta está correta
 }
 
 export default function BonusScreen({
@@ -20,17 +21,19 @@ export default function BonusScreen({
   showResult,
   isCorrect
 }: BonusScreenProps) {
-  const t = translations[language];
-  const [answer, setAnswer] = useState('');
-  const [timeLeft, setTimeLeft] = useState(20);
-  const [isAnswered, setIsAnswered] = useState(false);
+  const t = translations[language]; // Textos traduzidos
+  const [answer, setAnswer] = useState(''); // Resposta do usuário
+  const [timeLeft, setTimeLeft] = useState(20); // Tempo restante
+  const [isAnswered, setIsAnswered] = useState(false); // Se já respondeu
 
+  // Reseta o estado quando muda a pergunta
   useEffect(() => {
     setTimeLeft(20);
     setIsAnswered(false);
     setAnswer('');
   }, [bonusQuestion]);
 
+  // Contagem regressiva do tempo
   useEffect(() => {
     if (showResult) {
       setIsAnswered(true);
@@ -41,10 +44,11 @@ export default function BonusScreen({
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearTimeout(timer);
     } else if (timeLeft === 0 && !isAnswered) {
-      handleSubmit();
+      handleSubmit(); // Submete automaticamente ao acabar o tempo
     }
   }, [timeLeft, isAnswered, showResult]);
 
+  // Envia a resposta
   const handleSubmit = () => {
     if (!isAnswered) {
       setIsAnswered(true);
@@ -55,7 +59,7 @@ export default function BonusScreen({
   return (
     <div className="min-h-screen flex items-center justify-center p-2 sm:p-3 lg:p-4">
       <div className="max-w-md w-full space-y-3 sm:space-y-4 fade-in">
-        {/* Header */}
+        {/* Cabeçalho com título e indicadores */}
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
             <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400 pulse-animation" />
@@ -65,10 +69,12 @@ export default function BonusScreen({
             <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400 pulse-animation" />
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 glassmorphism rounded-lg p-2 inline-flex">
+            {/* Temporizador (fica vermelho nos últimos 5 segundos) */}
             <div className={`flex items-center gap-1.5 ${timeLeft <= 5 ? 'text-red-400 pulse-animation' : 'text-cyan-400'}`}>
               <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="font-bold text-xs sm:text-sm">{timeLeft}s</span>
             </div>
+            {/* Pontos da questão */}
             <div className="flex items-center gap-1.5 text-purple-400">
               <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="font-bold text-xs sm:text-sm">+{bonusQuestion.points} pts</span>
@@ -76,9 +82,9 @@ export default function BonusScreen({
           </div>
         </div>
 
-        {/* Bonus Question Card */}
+        {/* Card da pergunta bônus */}
         <div className="glassmorphism rounded-xl p-3 sm:p-4 space-y-3 sm:space-y-4">
-          {/* Question */}
+          {/* Texto da pergunta */}
           <div className="text-center">
             <h2 className="text-purple-400 mb-2 sm:mb-3 font-semibold text-sm sm:text-base">{t.bonusQuestion}</h2>
             <p className="text-sm sm:text-base lg:text-lg font-medium text-white leading-relaxed">
@@ -87,8 +93,9 @@ export default function BonusScreen({
           </div>
 
           {!showResult ? (
-            /* Answer Input */
+            /* Seção de resposta (antes do resultado) */
             <div className="space-y-2.5 sm:space-y-3">
+              {/* Input de resposta */}
               <div>
                 <label className="block text-cyan-400 font-medium mb-1.5 text-xs sm:text-sm">{t.yourAnswer}:</label>
                 <input
@@ -102,6 +109,7 @@ export default function BonusScreen({
                 />
               </div>
 
+              {/* Botão de enviar */}
               <div className="text-center">
                 <button
                   onClick={handleSubmit}
@@ -113,8 +121,9 @@ export default function BonusScreen({
               </div>
             </div>
           ) : (
-            /* Result */
+            /* Seção de resultado (após responder) */
             <div className="space-y-3 sm:space-y-4 slide-up">
+              {/* Ícone e mensagem de acerto/erro */}
               <div className={`flex items-center justify-center gap-2 ${isCorrect ? 'text-green-400' : 'text-red-400'}`}>
                 {isCorrect ? <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" /> : <XCircle className="w-5 h-5 sm:w-6 sm:h-6" />}
                 <span className="text-base sm:text-lg font-bold">
@@ -122,6 +131,7 @@ export default function BonusScreen({
                 </span>
               </div>
 
+              {/* Mostra a resposta correta */}
               <div className="bg-gray-800/50 rounded-lg p-2.5 sm:p-3 text-center">
                 <p className="text-cyan-400 font-medium mb-1.5 text-xs sm:text-sm">Resposta Correta / Correct Answer:</p>
                 <p className="text-white text-sm sm:text-base font-semibold">
@@ -129,6 +139,7 @@ export default function BonusScreen({
                 </p>
               </div>
 
+              {/* Mensagem de pontos extras (se acertou) */}
               {isCorrect && (
                 <div className="text-center">
                   <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-bold neon-glow">
@@ -138,6 +149,7 @@ export default function BonusScreen({
                 </div>
               )}
 
+              {/* Botão para continuar */}
               <div className="text-center">
                 <button
                   onClick={onContinue}
