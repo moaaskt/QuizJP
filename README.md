@@ -60,7 +60,7 @@ O Quiz do JP foi criado para:
 
 ## ✨ Autor
 
-Feito com 💙 por [@moaaskt](https://github.com/moaaskt)  
+Feito com 💙 por Grupo 1
 Design futurista, conteúdo educativo e interatividade — tudo em um só jogo.
 
 ---
