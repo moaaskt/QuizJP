@@ -25,15 +25,26 @@ Desenvolvido com **Vanta.js**, **Bolt** e tecnologias web modernas, o jogo combi
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🧠 Recursos Educativos
 
-| Tecnologia     | Função                                     |
-|----------------|---------------------------------------------|
-| HTML/CSS/JS    | Estrutura base e interações do jogo        |
-| Vanta.js       | Efeitos de fundo animado em 3D             |
-| Three.js       | Biblioteca base para o Vanta.js            |
-| LocalStorage   | Armazenamento local do ranking             |
-| JSON           | Base de dados para perguntas e idiomas     |
+- 🏛 **Educação**: Entenda como funcionam universidades ao redor do mundo
+- 🌍 **Cultura**: Descubra festivais, costumes e tradições globais
+- 🗣 **Idiomas**: Aprenda expressões e vocabulário de outros países
+
+---
+
+
+## 🛠 Tecnologias
+
+| Tecnologia       | Finalidade |
+|------------------|------------|
+| React + TypeScript | Estrutura principal e tipagem |
+| Tailwind CSS     | Estilização rápida e responsiva |
+| Vanta.js         | Fundos animados em 3D |
+| Three.js         | Base gráfica para Vanta |
+| LocalStorage     | Armazenamento de dados sem servidor |
+| JSON             | Banco de perguntas e traduções |
+| Lucide Icons     | Ícones claros e modernos |
 
 ---
 
@@ -61,7 +72,6 @@ O Quiz do JP foi criado para:
 ## ✨ Autor
 
 Feito com 💙 por Grupo 1
-Design futurista, conteúdo educativo e interatividade — tudo em um só jogo.
 
 ---
 
