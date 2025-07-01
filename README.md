@@ -29,7 +29,6 @@ Desenvolvido com **Vanta.js**, **Bolt** e tecnologias web modernas, o jogo combi
 
 | Tecnologia     | Função                                     |
 |----------------|---------------------------------------------|
-| [Bolt](https://boltiot.com/)       | Criação visual dos fluxos e lógicas do jogo |
 | HTML/CSS/JS    | Estrutura base e interações do jogo        |
 | Vanta.js       | Efeitos de fundo animado em 3D             |
 | Three.js       | Biblioteca base para o Vanta.js            |
