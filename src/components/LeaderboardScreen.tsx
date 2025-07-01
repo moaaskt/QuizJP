@@ -48,10 +48,10 @@ export default function LeaderboardScreen({ language, players, currentPlayer, on
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-2 sm:p-3 lg:p-4">
-      <div className="max-w-lg w-full space-y-3 sm:space-y-4 fade-in">
+    <div className="min-h-screen flex items-center justify-center p-2 sm:p-3 lg:p-4 overflow-hidden">
+      <div className="max-w-lg w-full h-[90vh] flex flex-col fade-in">
         {/* Header */}
-        <div className="text-center">
+        <div className="text-center mb-3 sm:mb-4">
           <Trophy className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 mx-auto mb-2 sm:mb-3 pulse-animation" />
           <h1 className="font-futuristic text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-1.5">
             {t.leaderboard}
@@ -61,8 +61,8 @@ export default function LeaderboardScreen({ language, players, currentPlayer, on
           </p>
         </div>
 
-        {/* Leaderboard */}
-        <div className="space-y-2.5 sm:space-y-3">
+        {/* Leaderboard - Scrollable Area */}
+        <div className="flex-1 overflow-y-auto pb-2 custom-scrollbar">
           {players.length === 0 ? (
             <div className="glassmorphism rounded-xl p-4 sm:p-6 text-center">
               <Star className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400 mx-auto mb-2 sm:mb-3" />
@@ -70,7 +70,7 @@ export default function LeaderboardScreen({ language, players, currentPlayer, on
             </div>
           ) : (
             <>
-              {/* Top 3 Podium - Only show on larger screens */}
+              {/* Top 3 Podium - Hidden on mobile */}
               {players.length >= 3 && (
                 <div className="hidden sm:grid grid-cols-3 gap-3 mb-4 sm:mb-6">
                   {/* 2nd Place */}
@@ -152,14 +152,14 @@ export default function LeaderboardScreen({ language, players, currentPlayer, on
           )}
         </div>
 
-        {/* Back Button */}
-        <div className="text-center">
+        {/* Back Button - Fixed at bottom */}
+        <div className="pt-3 pb-1 sticky bottom-0 bg-gradient-to-t from-gray-900/80 to-transparent">
           <button
             onClick={onBack}
-            className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 active:from-gray-700 active:to-gray-800 text-white font-semibold py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg transition-all duration-300 cyber-button flex items-center justify-center gap-1.5 mx-auto touch-friendly"
+            className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 active:from-gray-700 active:to-gray-800 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 w-full max-w-xs mx-auto flex items-center justify-center gap-1.5 touch-friendly"
           >
-            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span className="text-xs sm:text-sm">{t.backToMenu}</span>
+            <ArrowLeft className="w-4 h-4" />
+            <span className="text-sm">{t.backToMenu}</span>
           </button>
         </div>
       </div>

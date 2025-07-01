@@ -139,7 +139,7 @@ export default function GameScreen({
           </div>
 
           {/* Question */}
-          <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-white leading-relaxed mb-3 sm:mb-4">
+          <h2 className="text-base sm:text-lg lg:text-x1 font-semibold text-white leading-relaxed mb-3 sm:mb-4">
             {currentQuestion.question[language]}
           </h2>
 
@@ -153,7 +153,7 @@ export default function GameScreen({
                 className={getOptionClass(index)}
               >
                 <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-700 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm flex-shrink-0">
+                  <div className="w-7 h-7 sm:w-8 sm:h-3 bg-gray-700 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm flex-shrink-0">
                     {String.fromCharCode(65 + index)}
                   </div>
                   <span className="text-white font-medium text-sm sm:text-base text-left flex-1 leading-relaxed">{option}</span>
@@ -170,7 +170,7 @@ export default function GameScreen({
 
           {/* Result Feedback */}
           {showResult && (
-            <div className="border-t border-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 slide-up">
+            <div className="border-t border-gray-600 pt-3 sm:pt-1 space-y-3 sm:space-y-1 slide-up">
               <div className={`flex items-center gap-2.5 sm:gap-3 ${isCorrect ? 'text-green-400' : 'text-red-400'}`}>
                 {isCorrect ? <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" /> : <XCircle className="w-5 h-5 sm:w-6 sm:h-6" />}
                 <span className="text-lg sm:text-xl font-bold">
