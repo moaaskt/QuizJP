@@ -1,7 +1,7 @@
 # 🌍 Quiz do JP – Jogo Educativo Futurista
 
 **Quiz do JP** é um jogo de perguntas e respostas interativo, imersivo e multicultural, com foco na **internacionalização da educação superior**.  
-Desenvolvido com **Vanta.js**, **Bolt** e tecnologias web modernas, o jogo combina conteúdo educativo com uma interface visualmente impressionante e futurista.
+Desenvolvido com **Vanta.js** e tecnologias web modernas, o jogo combina conteúdo educativo com uma interface visualmente impressionante e futurista.
 
 <br/>
 
